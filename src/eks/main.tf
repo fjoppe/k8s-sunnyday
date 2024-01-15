@@ -8,8 +8,8 @@ variable "vpc_id" {
   nullable = false
 }
 
-variable "subnet_id" {
-  type = string
+variable "subnet_ids" {
+  type = list(string)
   nullable = false
 }
 
@@ -46,8 +46,7 @@ resource "aws_eks_cluster" "sunnyday" {
     role_arn = aws_iam_role.k8eksrole.arn
 
     vpc_config {
-      vpc_id = var.vpc_id
-      subnet_ids = [ var.subnet_id ]
+      subnet_ids = var.subnet_ids 
     }
 
     depends_on = [ aws_iam_role_policy_attachment.attach-EKSClusterPolicy ]
