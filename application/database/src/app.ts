@@ -1,8 +1,9 @@
-import express from 'express';
+import express, { application } from 'express';
 import csv from "csv-parser";
 import fs from "fs";
 
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 const data = [];
