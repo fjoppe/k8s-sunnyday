@@ -1,6 +1,14 @@
 FROM node:21.5.0-bullseye
 
-COPY src/dist /app
-COPY scripts/ /app
+WORKDIR /
 
-RUN ["/app/scripts.sh"]
+RUN mkdir /app
+
+COPY src/dist /app
+COPY src /app
+COPY scripts /app
+
+RUN cd /app && npm install
+
+ENTRYPOINT [ "/app/scripts.sh"]
+

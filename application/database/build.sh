@@ -1,7 +1,8 @@
 #!/bin/bash
 
-workdir=$(pwd)
-currentdir=`dirname -- "$( readlink -f -- "$0"; )";`
+export workdir=$(pwd)
+export currentdir=`dirname -- "$( readlink -f -- "$0"; )";`
+ls $currentdir
 
 cd $currentdir/src
 
@@ -10,5 +11,4 @@ npm run build
 
 cd $currentdir
 
-docker build -t k8simage:database-latest - < ./Dockerfile
-
+docker build -t k8simage:database-latest .

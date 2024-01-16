@@ -9,7 +9,8 @@
 		"ghcr.io/devcontainers-contrib/features/terraform-asdf:2": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
 		"ghcr.io/paul-gilber/devcontainer-features/eksctl-homebrew:1": {},
-		"ghcr.io/devcontainers-community/npm-features/typescript:1": {}
+		"ghcr.io/devcontainers-community/npm-features/typescript:1": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
