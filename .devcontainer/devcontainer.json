@@ -9,7 +9,7 @@
 		"ghcr.io/devcontainers-contrib/features/terraform-asdf:2": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
 		"ghcr.io/paul-gilber/devcontainer-features/eksctl-homebrew:1": {}		
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -19,7 +19,8 @@
 
 	// Configure tool-specific properties.
 	"customizations": {
-		"HashiCorp.terraform:2.29.2023121311"
+		"HashiCorp.terraform:2.29.2023121311": {},
+		"ms-azuretools.vscode-docker:1.28.0": {},
 	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
