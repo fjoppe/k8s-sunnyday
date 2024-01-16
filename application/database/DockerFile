@@ -1,0 +1,6 @@
+FROM node:21.5.0-bullseye
+
+COPY src/dist /app
+COPY scripts/ /app
+
+RUN ["/app/scripts.sh"]
