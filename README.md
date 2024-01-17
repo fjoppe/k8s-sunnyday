@@ -8,7 +8,7 @@ For being in high demand, this project demonstrates how to use terraform to depl
 Prerequisites:
 1.  Configure AWS cli with `aws configure`; note: the default region is used in these scripts;
 2.  Create a private repository in ECR with the name `k8simage`;
-3.  Build docker images in the `/application` folder;
+3.  Build & upload docker images with `/application/build_and_upload_all.sh` folder;
 
 
 Deploying to AWS:
