@@ -3,28 +3,30 @@ variable "region" {
   default = "sa-east-1"
 }
 
+variable "subnets" {
+  type = map(string)
+  default = {
+    "sa-east-1a" = "10.0.16.0/20"
+    "sa-east-1b" = "10.0.32.0/20"
+  }  
+}
 
 provider "aws" {
     region = var.region
 }
 
 
-module "vpc" {
-  source = "./vpc"
+module "networking" {
+  source = "./networking"
   region = var.region
+  subnets = var.subnets
 }
-
-
-# module "securitygroup" {
-# source = "./securitygroup"
-# region = var.region
-# }
 
 
 module "eks" {
   source = "./eks"
   region = var.region
-  vpc_id = module.vpc.vpc_id
-  subnet_ids = module.vpc.subnet_ids
+  vpc_id = module.networking.vpc_id
+  subnet_ids = module.networking.subnet_ids
 }
 

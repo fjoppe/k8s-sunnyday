@@ -1,17 +1,20 @@
-variable "region" {
+variable "region" { 
   type = string
   nullable = false
 }
+
 
 variable "vpc_id" {
   type = string
   nullable = false
 }
 
+
 variable "subnet_ids" {
   type = list(string)
   nullable = false
 }
+
 
 provider "aws" {
   region = var.region
@@ -41,6 +44,7 @@ resource "aws_iam_role_policy_attachment" "attach-EKSClusterPolicy" {
   role = aws_iam_role.k8eksrole.name
 }
 
+
 resource "aws_eks_cluster" "sunnyday" {
     name = "k8s-sunnyday"
     role_arn = aws_iam_role.k8eksrole.arn
@@ -52,7 +56,8 @@ resource "aws_eks_cluster" "sunnyday" {
     depends_on = [ aws_iam_role_policy_attachment.attach-EKSClusterPolicy ]
 }
 
+
+
 output "endpoint" {
     value = aws_eks_cluster.sunnyday.endpoint  
 }
-
