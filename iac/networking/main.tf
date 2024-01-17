@@ -38,7 +38,7 @@ resource "aws_subnet" "pubsubnet1a" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.tag_name}"
+    Name = "${var.tag_name}-pubsubnet1a"
   }
 }
 
