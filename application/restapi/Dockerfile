@@ -10,5 +10,5 @@ COPY scripts /app
 
 RUN cd /app && npm install
 
-ENTRYPOINT [ "/app/scripts.sh"]
+ENTRYPOINT [ "/app/start.sh"]
 

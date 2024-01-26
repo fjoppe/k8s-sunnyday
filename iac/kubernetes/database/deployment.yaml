@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+  labels:
+    app: database
+    group: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database    # indicates which Pods (with which labeles) need be handled by this Deployment
+  template:
+    metadata:         # indicates the metadata that will be added to each Pod
+      labels:
+        app: database
+        group: backend
+    spec:
+      containers:     # defines a running container inside the Pod
+        - name: database
+          image: "422505755735.dkr.ecr.sa-east-1.amazonaws.com/k8simage:database-latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000   # which port of the container is exposed to the Pod
+          env:
+            - name: ADMINER_DESIGN
+              value: pepa-linha
+            - name: ADMINER_DEFAULT_SERVER
+              value: postgres
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
