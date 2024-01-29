@@ -30,6 +30,14 @@ module "eks" {
   subnet_ids = module.networking.subnet_ids
 }
 
+
+module "ingress" {
+  source = "./ingress"
+  region = var.region
+  k8snamespace = "kube-system"  
+}
+
+
 output "cluster_id" {
   value = module.eks.cluster_id
 }
