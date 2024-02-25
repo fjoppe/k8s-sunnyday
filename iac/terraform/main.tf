@@ -34,7 +34,6 @@ module "eks" {
 module "ingress" {
   source = "./ingress"
   region = var.region
-  k8snamespace = "kube-system"  
 }
 
 
